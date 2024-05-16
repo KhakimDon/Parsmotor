@@ -6,5 +6,9 @@
   "Power": "Power",
   "Type": "Type",
   "app": "Appearance",
-  "fm": "Frame material"
+  "fm": "Frame material",
+  "catalog": "Catalog",
+  "Impeller": "Impeller",
+  "Phase": "Phase",
+  "Speed": "Speed"
 }

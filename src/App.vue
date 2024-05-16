@@ -5,21 +5,13 @@ import './style.css'
 
 const langAnim = ref(false)
 
-const preloader = ref(true)
-onMounted(() => {
-  setTimeout(() => {
-    preloader.value = false
-  }, 1000);
-})
+
 
 </script>
 
 <template>
   <div>
-    <div v-if="preloader" class="preloader">
-      <img class="h-[50px] mb-[10px]" src="https://parsmotor.uz/assets/logo-sLLg3iYW.png" alt="image">
-      <span class="loading loading-dots bg-[#032055] loading-lg"></span>
-    </div>
+    
     <RouterView />
 
     <div class="sm:right-[12%] sm:bottom-[initial] sm:top-[140px] flex flex-col gap-[10px] fixed right-[10px] bottom-[20px] z-[99]">

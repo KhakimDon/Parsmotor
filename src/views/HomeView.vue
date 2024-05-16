@@ -83,18 +83,28 @@ const productCategory = ref([
     subtitle_uz: "MOTORLAR VA SUV NASOSLARI CHO'L SOVUTGANLARI UCHUN",
   },
 ]);
+const preloader = ref(true)
+
 onMounted(() => {
   setTimeout(() => useLangStore().once = true, 1000);
+  setTimeout(() => {
+    preloader.value = false
+  }, 1000);
 })
 
 </script>
 
 <template>
   <div>
+    <div v-if="preloader" class="preloader">
+      <img class="h-[50px] mb-[10px]" src="https://parsmotor.uz/assets/logo-sLLg3iYW.png" alt="image">
+      <span class="loading loading-dots bg-[#032055] loading-lg"></span>
+    </div>
     <div class="header bg-white py-[10px] flex justify-center">
       <img class="h-[50px]" src="https://parsmotor.uz/assets/logo-sLLg3iYW.png" alt="image">
     </div>
-    <main class="h-[100vh] w-[100%] p-[20px]">
+    <h1 class="text-center sm:text-[32px] border-b-[1px] w-[max-content] border-[#184271] mx-auto my-[10px] font-[600] text-[#184271] text-[20px]">{{ $t("catalog") }}</h1>
+    <main class="h-[100vh] w-[100%] pb-[20px] px-[20px]">
       <div class="pb-[50px] sm:max-w-[1200px] sm:mt-[50px] sm:mx-auto sm:flex sm:flex-wrap sm:gap-[20px]">
         <div @click="$router.push(item.route)" :style="`transition-delay: .${productCategory.indexOf(item)}s`"
           :class="{ sl: useLangStore().once }" v-for="item of productCategory" :key="item.id"
